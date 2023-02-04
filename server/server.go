@@ -21,6 +21,7 @@ func NewHttpServer(logger logger.ILogger) IServer {
 		logger: logger,
 	}
 	r := gin.Default()
+	newServer.logger.Info("running http://localhost:8080")
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
